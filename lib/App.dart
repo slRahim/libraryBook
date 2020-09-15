@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
+import 'pages/home.dart';
+import 'pages/account.dart';
+import 'pages/advancedSearch.dart';
+import 'pages/favorite.dart';
+import 'pages/library.dart';
 
-
-class MyHomePage extends StatefulWidget {
+class MyAppPage extends StatefulWidget {
 
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyAppPageState createState() => _MyAppPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyAppPageState extends State<MyAppPage> {
+
+  int _viewIndex = 2 ;
+
+  List<Widget> _views = <Widget>[
+    AdvancedSearch(),LibraryPage(),HomePage(),FavoritePage(),AccountPage()
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _viewIndex = index;
+    });
+  }
 
 
   @override
@@ -35,314 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       ),
 
-      body: ListView(
-        padding: EdgeInsets.all(12),
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 10 , bottom: 10),
-            height: 280,
-            child: ListView.builder(
-                itemCount: 5,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_,i) => Container(
-                  width: 300,
-                  margin: EdgeInsets.all(10),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text("item ${i}"),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue[50],
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 5,
-                        blurRadius: 10,
-                        offset: Offset(0, 3,), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                )
-            ),
-          ),
-          Row(
-            children: <Widget>[
-              Expanded(
-                child:Text(
-                  'Top Newest Books',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              FlatButton(
-                onPressed: (){
-                  //
-                },
-                child: Text(
-                  'View All',
-                   style: TextStyle(
-                     color: Colors.blue,
-                     fontWeight: FontWeight.bold,
-                     fontSize: 15
-                   ),
-                ),
-                color: Colors.blue[50],
-              )
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10 , bottom: 10),
-            height: 200,
-            child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_,i) => Container(
-                  color: Colors.blue[50],
-                  width: 120,
-                  margin: EdgeInsets.only(right: 5),
-                  child: Container(
-                     alignment: Alignment.center,
-                     child: Text("item ${i}"),
-                  ),
-                )
-            ),
-          ),
-
-          Row(
-            children: <Widget>[
-              Expanded(
-                child:Text(
-                  'Collections',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              FlatButton(
-                onPressed: (){
-                  //
-                },
-                child: Text(
-                  'View All',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15
-                  ),
-                ),
-                color: Colors.blue[50],
-              )
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10 , bottom: 10),
-            height: 100,
-            child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_,i) => Container(
-                  color: Colors.blue[50],
-                  width: 120,
-                  margin: EdgeInsets.only(right: 5),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text("item ${i}"),
-                  ),
-                )
-            ),
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Expanded(
-                child:Text(
-                  'Recommended Books',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              FlatButton(
-                onPressed: (){
-                  //
-                },
-                child: Text(
-                  'View All',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15
-                  ),
-                ),
-                color: Colors.blue[50],
-              )
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10 , bottom: 10),
-            height: 200,
-            child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_,i) => Container(
-                  color: Colors.blue[50],
-                  width: 120,
-                  margin: EdgeInsets.only(right: 5),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text("item ${i}"),
-                  ),
-                )
-            ),
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Expanded(
-                child:Text(
-                  'Popular Books',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              FlatButton(
-                onPressed: (){
-                  //
-                },
-                child: Text(
-                  'View All',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15
-                  ),
-                ),
-                color: Colors.blue[50],
-              )
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10 , bottom: 10),
-            height: 200,
-            child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_,i) => Container(
-                  color: Colors.blue[50],
-                  width: 120,
-                  margin: EdgeInsets.only(right: 5),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text("item ${i}"),
-                  ),
-                )
-            ),
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Expanded(
-                child:Text(
-                  'Top Selling Books',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              FlatButton(
-                onPressed: (){
-                  //
-                },
-                child: Text(
-                  'View All',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15
-                  ),
-                ),
-                color: Colors.blue[50],
-              )
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10 , bottom: 10),
-            height: 200,
-            child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_,i) => Container(
-                  color: Colors.blue[50],
-                  width: 120,
-                  margin: EdgeInsets.only(right: 5),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text("item ${i}"),
-                  ),
-                )
-            ),
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Expanded(
-                child:Text(
-                  'Best Authors',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              FlatButton(
-                onPressed: (){
-                  //
-                },
-                child: Text(
-                  'View All',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15
-                  ),
-                ),
-                color: Colors.blue[50],
-              )
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10 , bottom: 10),
-            height: 150,
-            child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_,i) => Container(
-                  color: Colors.blue[50],
-                  width: 120,
-                  margin: EdgeInsets.only(right: 5),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text("item ${i}"),
-                  ),
-                )
-            ),
-          ),
-
-        ],
-
-      ),
+      body: _views.elementAt(_viewIndex),
 
       bottomNavigationBar:Container(
         padding: EdgeInsets.all(10),
@@ -353,9 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
           unselectedItemColor: Colors.grey[700],
           selectedFontSize: 12,
           unselectedFontSize: 12,
-          onTap: (value) {
-            // Respond to item press.
-          },
+          currentIndex: _viewIndex,
+          onTap: _onItemTapped ,
           items: [
             BottomNavigationBarItem (
               title: Text('Search'),
@@ -384,7 +92,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 child: Icon(Icons.home , color: Colors.white),
               )
-
             ),
             BottomNavigationBarItem(
               title: Text('Favorite'),
