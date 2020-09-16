@@ -31,13 +31,18 @@ class _MyAppPageState extends State<MyAppPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Maktaba',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.italic,
-              color: Colors.black,
-          ),
+        title: Row(
+          children: [
+            Icon(Icons.local_library , color: Colors.red,size: 40,),
+            Text(
+              'Maktaba',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.black,
+              ),
+            ),
+          ],
         ),
         backgroundColor: Colors.white,
         actions: <Widget>[

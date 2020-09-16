@@ -13,8 +13,23 @@ class BookCover extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Expanded(
-          child: Image.network(
-            "https://i.pinimg.com/originals/b9/57/3e/b9573e65e8a6fdb09d3e06432480abbd.jpg",
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://images-na.ssl-images-amazon.com/images/I/814FfszRNCL.jpg'),
+                fit: BoxFit.fill,
+              ),
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 3,
+                  offset: Offset(0, 3,), // changes position of shadow
+                ),
+              ],
+            ),
           ),
         ),
         ListTile(
