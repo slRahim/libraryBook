@@ -74,7 +74,23 @@ class _BookDetailsState extends State<BookDetails> {
               children: [
                 Container(
                   margin: EdgeInsets.only(top: 10 , bottom: 10),
-                  color: Colors.red,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://images-na.ssl-images-amazon.com/images/I/814FfszRNCL.jpg'),
+                      fit: BoxFit.fill,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3,), // changes position of shadow
+                      ),
+                    ],
+                  ),
                   height: 300,
                 ),
                 Container(
@@ -311,6 +327,7 @@ class _BookDetailsState extends State<BookDetails> {
                 Container(
                   height: 110,
                   margin: EdgeInsets.only(top: 10,bottom: 20),
+                  padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: [
@@ -320,6 +337,35 @@ class _BookDetailsState extends State<BookDetails> {
                         blurRadius: 3,
                         offset: Offset(1, 2,), // changes position of shadow
                       ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.blue[400],
+                        child: Text(
+                          "A",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20
+                          ),
+                        ),
+                      ),
+                      Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Text(
+                            "Slimani Abderrahim",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Icon(Icons.open_in_new,color: Colors.black54,),
+                      )
                     ],
                   ),
                 ),

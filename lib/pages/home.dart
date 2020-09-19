@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
             ),
             FlatButton(
               onPressed: (){
-                //
+                 Navigator.pushNamed(context, "/bookListing",arguments: "Newest Books");
               },
               child: Text(
                 'View All',
@@ -194,7 +194,7 @@ class _HomePageState extends State<HomePage> {
             ),
             FlatButton(
               onPressed: (){
-                //
+                Navigator.pushNamed(context, "/bookListing",arguments: "Recommended Books");
               },
               child: Text(
                 'View All',
@@ -243,7 +243,7 @@ class _HomePageState extends State<HomePage> {
             ),
             FlatButton(
               onPressed: (){
-                //
+                Navigator.pushNamed(context, "/bookListing",arguments: "Popular Books");
               },
               child: Text(
                 'View All',
@@ -289,7 +289,7 @@ class _HomePageState extends State<HomePage> {
             ),
             FlatButton(
               onPressed: (){
-                //
+                Navigator.pushNamed(context, "/bookListing",arguments: "Top Selling Books");
               },
               child: Text(
                 'View All',

@@ -45,14 +45,7 @@ class _MyAppPageState extends State<MyAppPage> {
           ],
         ),
         backgroundColor: Colors.white,
-        actions: <Widget>[
-          IconButton(
-            onPressed: (){
-              //
-            },
-            icon :Icon(Icons.shopping_cart,color: Colors.black,),
-          ),
-        ],
+
 
       ),
 
