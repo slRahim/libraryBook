@@ -5,6 +5,7 @@ import 'pages/advancedSearch.dart';
 import 'pages/favorite.dart';
 import 'pages/library.dart';
 
+
 class MyAppPage extends StatefulWidget {
 
 
@@ -19,6 +20,7 @@ class _MyAppPageState extends State<MyAppPage> {
   List<Widget> _views = <Widget>[
     AdvancedSearch(),LibraryPage(),HomePage(),FavoritePage(),AccountPage()
   ];
+
 
   void _onItemTapped(int index) {
     setState(() {

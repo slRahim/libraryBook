@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_library_book/api/authorApi.dart';
 import 'package:flutter_library_book/components/bookCard.dart';
 import 'package:flutter_library_book/components/bookCover.dart';
+import 'package:flutter_library_book/models/Author.dart';
 import 'package:flutter_library_book/models/Book.dart';
 
 
@@ -23,11 +25,29 @@ class _HomePageState extends State<HomePage> {
     new Book("Peaky Blinders", "ghngq grgjk gbg gzgbjziqg nnr gnjigs fifzeq biieqfi", "Mouad"),
   ];
 
+  List<Author> _authors=List<Author>() ;
+
   Color generateRandomColor() {
     // Define all colors you want here
     const predefinedColors = [Colors.pink ,Colors.red , Colors.orange , Colors.yellow,];
     Random random = Random();
     return predefinedColors[random.nextInt(predefinedColors.length)];
+  }
+
+
+  @override
+  void initState() {
+    AuthorApi.getAuthors()
+      .then(
+        (value){
+          for(int i = 0 ; i<value.length ; i++){
+            _authors.add(Author.fromJson(value.elementAt(i)));
+          }
+        },
+        onError: (e){
+          throw Exception(e);
+        }
+    );
   }
 
   @override
@@ -342,7 +362,7 @@ class _HomePageState extends State<HomePage> {
           margin: EdgeInsets.only(top: 10 , bottom:10),
           height: 150,
           child: ListView.builder(
-              itemCount: 7,
+              itemCount: _authors.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (_,i) => Container(
                 width: 120,
@@ -354,7 +374,7 @@ class _HomePageState extends State<HomePage> {
                         backgroundColor: generateRandomColor(),
                         radius: 40,
                         child: Text(
-                            "AH",
+                            _authors.elementAt(i).name.substring(0,2),
                           style: TextStyle(
                             fontSize: 22,
                             color: Colors.white,
@@ -363,12 +383,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Text(
-                      "Abderrahim Slimani",
+                      _authors.elementAt(i).name,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
                       ),
                     )
                   ],
