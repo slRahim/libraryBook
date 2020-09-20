@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_library_book/components/bookCard.dart';
 import 'package:flutter_library_book/components/bookCover.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_library_book/models/Book.dart';
 
 
 class HomePage extends StatefulWidget {
-
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -25,15 +23,9 @@ class _HomePageState extends State<HomePage> {
     new Book("Peaky Blinders", "ghngq grgjk gbg gzgbjziqg nnr gnjigs fifzeq biieqfi", "Mouad"),
   ];
 
-  final List _covers = [
-    "https://images.wallpaperscraft.com/image/books_vintage_paper_cards_notebook_retro_74362_1920x1080.jpg",
-    "https://image.winudf.com/v2/image1/Y29tLnNvbWV3YWxsaWVzLnNvbWV3YWxscGFwZXJzX3NvbWV3YWxzMS5saWJyYXJ5X3NjcmVlbl8yXzE1NDcyNjUyOTRfMDEx/screen-2.jpg?fakeurl=1&type=.jpg",
-    "https://wi.wallpapertip.com/wsimgs/248-2485009_library-desktop-wallpaper.jpg"
-  ];
-  
   Color generateRandomColor() {
     // Define all colors you want here
-    const predefinedColors = [Colors.pink ,Colors.red , Colors.orange , Colors.yellow];
+    const predefinedColors = [Colors.pink ,Colors.red , Colors.orange , Colors.yellow,];
     Random random = Random();
     return predefinedColors[random.nextInt(predefinedColors.length)];
   }
@@ -45,30 +37,24 @@ class _HomePageState extends State<HomePage> {
       padding: EdgeInsets.all(12),
       children: <Widget>[
         Container(
-          margin: EdgeInsets.only(top: 10 , bottom: 10),
+          margin: EdgeInsets.only(top: 5, bottom: 10),
           height: 280,
-          child: ListView.builder(
-              itemCount:_covers.length ,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (_,i) => Container(
-                width: 300,
-                margin: EdgeInsets.only(right: 10 , bottom: 10),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(_covers.elementAt(i)),
-                    fit: BoxFit.fill,
-                  ),
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.4),
-                      spreadRadius: 3,
-                      blurRadius: 7,
-                      offset: Offset(0, 3,), // changes position of shadow
-                    ),
-                  ],
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage("https://images.wallpaperscraft.com/image/books_vintage_paper_cards_notebook_retro_74362_1920x1080.jpg"),
+                fit: BoxFit.fill,
+              ),
+              borderRadius: BorderRadius.circular(0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.4),
+                  spreadRadius: 3,
+                  blurRadius: 7,
+                  offset: Offset(0, 3,), // changes position of shadow
                 ),
-              )
+              ],
+            ),
           ),
         ),
 
