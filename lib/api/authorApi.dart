@@ -11,13 +11,14 @@ class AuthorApi {
 
       if (response.statusCode == 200) {
         List jsonResponse = json.decode(response.body);
-        return jsonResponse.map((user) => new Author.fromJson(user)).toList();
+        return jsonResponse.map((author) => new Author.fromJson(author)).toList();
       } else {
-        throw Exception('Failed to load jobs from API');
+        throw Exception('Failed to load authors from API');
       }
 
     }catch(e){
       throw Exception('Failed to load authors');
     }
   }
+
 }

@@ -37,9 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    AuthorApi.getAuthors()
-      .then(
-        (value){
+    AuthorApi.getAuthors().then((value){
           _authors=value;
         }
     );
