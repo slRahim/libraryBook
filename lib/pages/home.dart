@@ -40,12 +40,7 @@ class _HomePageState extends State<HomePage> {
     AuthorApi.getAuthors()
       .then(
         (value){
-          for(int i = 0 ; i<value.length ; i++){
-            _authors.add(Author.fromJson(value.elementAt(i)));
-          }
-        },
-        onError: (e){
-          throw Exception(e);
+          _authors=value;
         }
     );
   }

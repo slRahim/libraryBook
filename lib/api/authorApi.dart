@@ -4,11 +4,17 @@ import 'package:http/http.dart' as http;
 
 class AuthorApi {
 
-  static Future<List> getAuthors() async {
+  static Future<List<Author>> getAuthors() async {
 
     try{
-      final response = await http.get("https://jsonplaceholder.typicode.com/user");
-      return json.decode(response.body);
+      final response = await http.get("https://jsonplaceholder.typicode.com/users");
+
+      if (response.statusCode == 200) {
+        List jsonResponse = json.decode(response.body);
+        return jsonResponse.map((user) => new Author.fromJson(user)).toList();
+      } else {
+        throw Exception('Failed to load jobs from API');
+      }
 
     }catch(e){
       throw Exception('Failed to load authors');
