@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_library_book/pages/bookDetails.dart';
 import 'package:flutter_library_book/pages/booksListing.dart';
-import 'package:flutter_library_book/pages/home.dart';
 import 'package:flutter_library_book/pages/splash.dart';
 import 'App.dart';
 
